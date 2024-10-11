@@ -10,6 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Suspense fallback={"Loding..."}>
         <Router />
+
         <ToastContainer />
       </Suspense>
     </BrowserRouter>

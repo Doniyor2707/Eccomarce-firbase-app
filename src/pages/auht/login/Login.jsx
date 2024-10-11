@@ -44,10 +44,9 @@ const Register = () => {
           resetForm();
         })
         .catch((err) => {
-          const errCode = err.code;
+          console.log('err',err)
           const errMessage = err.message;
-          toast.error(`${errMessage} ${errCode}`);
-          resetForm();
+          toast.error(errMessage); 
         })
         .finally(() => setSubmitting(false));
     },

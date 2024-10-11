@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+}
+
+.headerSearch {
+  display: flex;
+  align-items: center;
+}
+
+
+.input {
+  border-radius: 9999px;
+  padding: 0 24px;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(75, 85, 99, 1);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  width: 70px;
+  justify-content: space-between;
+}
