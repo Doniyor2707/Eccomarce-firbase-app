@@ -7,8 +7,8 @@ const Router = () => {
   return (
     <Routes>
       {/* auth routes */}
-      <Route path="/" element={<AuthLayout />}>
-        <Route path="/login" element={<Login />} />
+      <Route  element={<AuthLayout />}>
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
 
