@@ -1,0 +1,80 @@
+.form {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(17, 24, 39, 1);
+}
+
+.inp {
+  width: 440px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  border-radius: 12px;
+  padding: 12px 16px 12px 16px;
+  margin-top: 8px;
+}
+
+.formInp {
+  margin-top: 24px;
+}
+
+.btn {
+  width: 440px;
+  box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(17, 24, 39, 1);
+  color: #fff;
+  margin-top: 24px;
+  border: none;
+  padding: 14px 0;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.paragrf {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 24px;
+}
+
+.user {
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.link {
+  color: rgb(149, 203, 245);
+}
+
+.err {
+  color: #ff4d4f;
+  margin-top: 1px;
+  margin-left: 10px;
+  font-size: 12px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
