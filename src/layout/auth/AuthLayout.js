@@ -9,7 +9,7 @@ import styles from "./AuthLayout.module.css";
 
 const AuthLayout = () => {
   return (
-    <div>
+    <div className={styles.layout}>
       {/* header */}
       <Header />
 

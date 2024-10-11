@@ -76,3 +76,38 @@
     transform: translateY(0);
   }
 }
+
+/* responsive */
+
+@media only screen and (max-width: 380px) {
+  .form {
+    height: 350px;
+    padding: 0 24px;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .inp {
+    width: 310px;
+  }
+
+  .btn {
+    width: 310px;
+  }
+
+  .user {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .paragrf {
+    font-size: 12px;
+  }
+  
+  .err {
+    font-size: 10px;
+  }
+}
