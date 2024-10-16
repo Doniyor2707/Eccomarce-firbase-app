@@ -1,1 +1,1 @@
-export  * from "./auht/index";
+export  * from "./auht/";

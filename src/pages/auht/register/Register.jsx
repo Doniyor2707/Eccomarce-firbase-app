@@ -42,13 +42,12 @@ const Register = () => {
           const user = userData.user;
           console.log(user);
           toast.success("Succesfully")
-          navigate("/profile");
+          navigate("/login");
           resetForm();
         })
-        .catch((err) => {
-          const errCode = err.code;
+        .catch((err) => {          
           const errMessage = err.message;
-          toast.error(`${errMessage} ${errCode}`);
+          toast.error(`${errMessage}`);
           console.log(errMessage);
           resetForm();
         })
