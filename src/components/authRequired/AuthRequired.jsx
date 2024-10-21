@@ -15,7 +15,7 @@ const AuthRequired = () => {
   }, []);
 
   return allow === null ? (
-    "Loadingmkk..."
+    "Loading ..."
   ) : allow ? (
     <Outlet />
   ) : (

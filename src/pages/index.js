@@ -1,1 +1,2 @@
-export  * from "./auht/";
+export * from "./auht/";
+export * from "./main/";

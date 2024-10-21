@@ -1,0 +1,12 @@
+.cardTitle {
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 40px;
+  color: rgba(17, 24, 39, 1);
+}
+
+.cardTitle span {
+  font-size: 28px;
+  color: rgba(75, 85, 99, 0.8);
+  display: inline-block;
+}

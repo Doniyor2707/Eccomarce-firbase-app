@@ -3,6 +3,7 @@ h2 {
   font-weight: 600;
   font-size: 36px;
   line-height: 40px;
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 380px) {

@@ -2,8 +2,8 @@ import { auth } from "../../../firbase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useState } from "react";
 import TitleH2 from "../../../components/ui/title/TitleH2";
+
 
 // styles
 import styles from "./login.module.css";
@@ -25,8 +25,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const [mass, setMass] = useState("");
-
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -44,9 +42,9 @@ const Register = () => {
           resetForm();
         })
         .catch((err) => {
-          console.log('err',err)
+          console.log("err", err);
           const errMessage = err.message;
-          toast.error(errMessage); 
+          toast.error(errMessage);
         })
         .finally(() => setSubmitting(false));
     },
@@ -104,7 +102,8 @@ const Register = () => {
       </button>
 
       <p className={styles.paragrf}>OR</p>
-
+      
+    
       <div className={styles.user}>
         New user ?
         <Link to={"/register"} className={styles.link}>

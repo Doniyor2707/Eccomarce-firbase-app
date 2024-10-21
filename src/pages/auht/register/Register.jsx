@@ -1,5 +1,6 @@
-import { auth } from "../../../firbase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, provider, providerGit } from "../../../firbase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
@@ -7,6 +8,12 @@ import styles from "../login/login.module.css";
 import TitleH2 from "../../../components/ui/title/TitleH2";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Google from "../../../assets/images.png";
+import GitHup from "../../../assets/25231.png";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+} from "firebase/auth/web-extension";
 
 const initialValues = {
   email: "",
@@ -35,17 +42,17 @@ const Register = () => {
     initialValues,
     validationSchema,
     onSubmit: (values, { setSubmitting, resetForm }) => {
-      const { email, password} = values;
+      const { email, password } = values;
 
       createUserWithEmailAndPassword(auth, email, password)
         .then((userData) => {
           const user = userData.user;
           console.log(user);
-          toast.success("Succesfully")
+          toast.success("Succesfully");
           navigate("/login");
           resetForm();
         })
-        .catch((err) => {          
+        .catch((err) => {
           const errMessage = err.message;
           toast.error(`${errMessage}`);
           console.log(errMessage);
@@ -55,6 +62,53 @@ const Register = () => {
     },
   });
 
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        const user = result.user;
+        console.log("User:", user);
+        console.log("Token:", token);
+
+        if (user && token) {
+          navigate("/profile");
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData?.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+
+        console.error("Error:", errorCode, errorMessage);
+        console.error("User email:", email);
+      });
+  };
+
+  let isSigningIn = false;
+
+  const handleGitHubSignIn = () => {
+    if (isSigningIn) return; // Agar sign-in jarayoni allaqachon davom etsa, funksiyani qayta chaqirmaslik
+
+    isSigningIn = true; // Sign-in jarayoni boshlanmoqda
+
+    signInWithPopup(auth, providerGit)
+      .then((result) => {
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+      .finally(() => {
+        isSigningIn = false; // Sign-in jarayoni tugadi
+      });
+  };
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
       <TitleH2 title={"Register"} />
@@ -126,6 +180,16 @@ const Register = () => {
       </button>
 
       <p className={styles.paragrf}>OR</p>
+
+      <div className={styles.add}>
+        <Link onClick={handleGoogleSignIn}>
+          <img src={Google} alt="Google" width={30} />
+        </Link>
+
+        <Link onClick={handleGitHubSignIn}>
+          <img src={GitHup} alt="Google" width={30} />
+        </Link>
+      </div>
 
       <div className={styles.user}>
         Already a member?
