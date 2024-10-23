@@ -1,6 +1,7 @@
-import React from "react";
+// components
 import CardTitle from "../../../components/ui/cardTitle/CardTitle";
 import Card from "../../../components/main/card/Card";
+import CardContent from "../../../components/main/card/cardContent/CardContent";
 
 const Home = () => {
   return (
@@ -14,6 +15,8 @@ const Home = () => {
       {/* card */}
       <Card>
         {/* card content */}
+        <CardContent/>
+        
       </Card>
     </div>
   );

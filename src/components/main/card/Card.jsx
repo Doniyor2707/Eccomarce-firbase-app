@@ -1,10 +1,16 @@
 // styles
-import styles from "./card.module.css"
+import styles from "./card.module.css";
 
-function Card() {
+function Card({ children }) {
   return (
-    <div className={styles.card}>Card</div>
-  )
+    <div className={styles.card}>
+      {children}
+      {children}
+
+      {children}
+      {children}
+    </div>
+  );
 }
 
-export default Card
+export default Card;
